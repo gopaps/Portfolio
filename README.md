@@ -1,1 +1,10 @@
 # Portfolio
+![Page 1](preview/Portofolio%20Anda%20Figo%20Haq-1.png)  
+![Page 2](preview/Portofolio%20Anda%20Figo%20Haq-2.png)  
+![Page 3](preview/Portofolio%20Anda%20Figo%20Haq-3.png)  
+![Page 4](preview/Portofolio%20Anda%20Figo%20Haq-4.png)  
+![Page 5](preview/Portofolio%20Anda%20Figo%20Haq-5.png)  
+![Page 6](preview/Portofolio%20Anda%20Figo%20Haq-6.png)  
+![Page 7](preview/Portofolio%20Anda%20Figo%20Haq-7.png)  
+![Page 8](preview/Portofolio%20Anda%20Figo%20Haq-8.png)  
+![Page 9](preview/Portofolio%20Anda%20Figo%20Haq-9.png)
