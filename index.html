@@ -22,7 +22,7 @@
   --grad2:linear-gradient(135deg,#9b5cff,#ff3dac);
   --text:#e8eaf6;
   --muted:#6b7db3;
-  --border:rgba(0,200,255,0.15);
+  --border:rgba(0,200,255,0.15);  
   --glow:0 0 30px rgba(0,200,255,0.25);
   --glow2:0 0 30px rgba(155,92,255,0.25);
   --font-display:'Syne',sans-serif;
@@ -517,6 +517,210 @@ footer{
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+
+/* ─── PROJECT VIEW BTN ─── */
+.project-view-btn{
+  margin-top:1.25rem;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 22px;border-radius:8px;
+  background:transparent;
+  border:1px solid var(--border);
+  font-family:var(--font-mono);font-size:0.75rem;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--blue);cursor:pointer;
+  transition:all 0.2s;
+  width:100%;justify-content:center;
+}
+.project-view-btn:hover{
+  background:rgba(0,200,255,0.08);
+  border-color:var(--blue);
+  box-shadow:0 0 16px rgba(0,200,255,0.2);
+}
+.project-view-btn svg{width:14px;height:14px;flex-shrink:0}
+
+/* ─── MODAL OVERLAY ─── */
+.pm-overlay{
+  position:fixed;inset:0;z-index:9990;
+  background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s ease;
+}
+.pm-overlay.open{opacity:1;pointer-events:all}
+
+/* ─── MODAL BOX ─── */
+.pm-box{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:20px;
+  max-width:780px;width:100%;
+  max-height:90vh;overflow-y:auto;
+  box-shadow:0 0 80px rgba(0,200,255,0.12), 0 32px 80px rgba(0,0,0,0.5);
+  transform:translateY(32px) scale(0.97);
+  opacity:0;
+  transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
+  scrollbar-width:thin;scrollbar-color:var(--border) transparent;
+}
+.pm-overlay.open .pm-box{transform:translateY(0) scale(1);opacity:1}
+
+/* top gradient accent line */
+.pm-accent-bar{
+  height:3px;
+  background:var(--grad);
+  border-radius:20px 20px 0 0;
+}
+
+.pm-inner{padding:2rem 2rem 2.5rem}
+
+/* ─── MODAL HEADER ─── */
+.pm-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:1rem;margin-bottom:1.5rem;
+}
+.pm-header-left{display:flex;gap:1rem;align-items:center}
+.pm-icon-lg{
+  width:52px;height:52px;flex-shrink:0;
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;
+  background:rgba(0,200,255,0.07);
+  border:1px solid var(--border);
+}
+.pm-title{
+  font-family:var(--font-display);font-size:1.6rem;font-weight:700;
+  color:var(--text);line-height:1.1;
+}
+.pm-role{
+  font-family:var(--font-mono);font-size:0.72rem;
+  color:var(--blue);letter-spacing:0.1em;
+  text-transform:uppercase;margin-top:4px;
+}
+.pm-close{
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid var(--border);background:rgba(255,255,255,0.04);
+  color:var(--muted);font-size:1rem;cursor:pointer;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.pm-close:hover{background:rgba(0,200,255,0.1);border-color:var(--blue);color:var(--blue)}
+
+/* ─── TABS ─── */
+.pm-tabs{
+  display:flex;gap:0.5rem;
+  border-bottom:1px solid var(--border);
+  margin-bottom:1.5rem;
+}
+.pm-tab{
+  font-family:var(--font-mono);font-size:0.75rem;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:0.6rem 1.2rem;border-radius:8px 8px 0 0;
+  border:none;background:transparent;color:var(--muted);
+  cursor:pointer;transition:all 0.2s;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  display:flex;align-items:center;gap:6px;
+}
+.pm-tab:hover{color:var(--blue)}
+.pm-tab.active{color:var(--blue);border-bottom-color:var(--blue);background:rgba(0,200,255,0.05)}
+
+/* ─── TAB PANELS ─── */
+.pm-panel{display:none}
+.pm-panel.active{display:block}
+
+/* ─── DESCRIPTION PANEL ─── */
+.pm-desc{
+  color:rgba(232,234,246,0.75);font-size:0.95rem;line-height:1.8;
+  margin-bottom:1.5rem;
+}
+.pm-tags-row{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem}
+
+/* ─── VIDEO PANEL ─── */
+.pm-video-wrap{
+  position:relative;width:100%;aspect-ratio:16/9;
+  border-radius:12px;overflow:hidden;
+  background:var(--bg3);
+  border:1px solid var(--border);
+}
+.pm-video-wrap iframe{width:100%;height:100%;border:none}
+.pm-no-video{
+  width:100%;aspect-ratio:16/9;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--bg3);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0.75rem;color:var(--muted);
+  font-family:var(--font-mono);font-size:0.8rem;letter-spacing:0.08em;
+}
+.pm-no-video span{font-size:2.5rem}
+.pm-yt-link{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:0.75rem;padding:8px 20px;border-radius:8px;
+  background:rgba(229,9,20,0.1);border:1px solid rgba(229,9,20,0.3);
+  color:#ff4d57;font-family:var(--font-mono);font-size:0.75rem;
+  text-decoration:none;letter-spacing:0.08em;
+  transition:all 0.2s;
+}
+.pm-yt-link:hover{background:rgba(229,9,20,0.2);border-color:rgba(229,9,20,0.5)}
+
+/* ─── GALLERY PANEL ─── */
+.pm-gallery{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:0.75rem;
+}
+.pm-gallery-img{
+  width:100%;aspect-ratio:16/10;
+  border-radius:10px;object-fit:cover;
+  border:1px solid var(--border);
+  background:var(--bg3);
+  cursor:pointer;
+  transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;
+}
+.pm-gallery-img:hover{transform:scale(1.03);box-shadow:var(--glow);border-color:rgba(0,200,255,0.3)}
+.pm-no-gallery{
+  padding:3rem;text-align:center;
+  border-radius:12px;border:1px dashed var(--border);
+  color:var(--muted);font-family:var(--font-mono);font-size:0.8rem;line-height:2;
+}
+.pm-no-gallery span{font-size:2rem;display:block;margin-bottom:0.5rem}
+.pm-gallery-caption{
+  grid-column:1/-1;
+  font-family:var(--font-mono);font-size:0.68rem;
+  color:var(--muted);letter-spacing:0.06em;
+  margin-top:0.25rem;
+}
+
+/* ─── LIGHTBOX ─── */
+.pm-lightbox{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,0.93);
+  display:flex;align-items:center;justify-content:center;
+  padding:2rem;opacity:0;pointer-events:none;transition:opacity 0.25s;
+}
+.pm-lightbox.open{opacity:1;pointer-events:all}
+.pm-lightbox img{
+  max-width:100%;max-height:85vh;
+  border-radius:10px;object-fit:contain;
+  box-shadow:0 0 60px rgba(0,200,255,0.15);
+}
+.pm-lightbox-close{
+  position:absolute;top:1.5rem;right:1.5rem;
+  width:42px;height:42px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.06);
+  color:#fff;font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.pm-lightbox-close:hover{background:rgba(0,200,255,0.15);border-color:var(--blue)}
+
+/* ─── MOBILE MODAL ─── */
+@media(max-width:640px){
+  .pm-inner{padding:1.25rem 1.25rem 2rem}
+  .pm-title{font-size:1.25rem}
+  .pm-tabs{gap:0.25rem}
+  .pm-tab{padding:0.5rem 0.75rem;font-size:0.68rem}
+  .pm-gallery{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
@@ -556,7 +760,7 @@ footer{
       ANDA<br>
       <span>FIGO HAQ</span>
     </h1>
-    <p class="hero-subtitle">AI DATA ANALYST &nbsp;·&nbsp; DATA ENGINEER &nbsp;·&nbsp; IoT & EMBEDDED SYSTEMS ENGINEER</p>
+    <p class="hero-subtitle">JR. FULL STACK ENGINEER &nbsp;·&nbsp; DATA ENGINEER &nbsp;·&nbsp; DATA ANALYST</p>
     <div class="hero-headline" id="typed-target"></div>
     <div class="hero-cta-row">
       <a href="#projects" class="btn-primary">
@@ -583,15 +787,15 @@ footer{
         <div class="section-label">About Me</div>
         <h2 class="section-title">Building Bridges Between <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Data & Impact</span></h2>
         <div class="section-line"></div>
-        <p>A Computer Engineering graduate (Cum Laude, GPA 3.61) from Telkom University with a proven ability to transform complex data into scalable, real-world solutions.</p>
-        <p>Experienced in building end-to-end systems that bridge hardware and software — from ESP32 microcontrollers to cloud dashboards, from raw SQL to AI-driven insights.</p>
-        <p>Passionate about automation, AI integration, and creating systems that make decisions smarter and processes more efficient.</p>
+        <p>Junior Full Stack Engineer specializing in IoT and embedded systems, with a strong ability to turn complex data into scalable, real-world solutions. Experienced in Python, JavaScript, and backend development, with a solid foundation in system integration, monitoring, and cybersecurity.</p>
+        <p>Computer Engineering graduate (Cum Laude, GPA 3.61) from Telkom University — building end-to-end systems that bridge hardware and software, from ESP32 microcontrollers and MQTT cloud dashboards to full-stack web applications and blockchain smart contracts.</p>
+        <p>Former Lab Assistant at SECULAB Cybersecurity Lab and Endowment Fund Scholarship Recipient. Passionate about automation, data engineering, and systems that deliver measurable impact.</p>
         <div class="about-pills">
-          <span class="pill">Data-Driven Mindset</span>
-          <span class="pill">AI & Automation</span>
-          <span class="pill">System Integration</span>
-          <span class="pill">IoT Engineering</span>
+          <span class="pill">IoT & Embedded Systems</span>
+          <span class="pill">Full Stack Development</span>
+          <span class="pill">Data Engineering</span>
           <span class="pill">Cybersecurity</span>
+          <span class="pill">System Integration</span>
         </div>
       </div>
       <div class="about-stats fade-in">
@@ -608,8 +812,9 @@ footer{
           <span class="stat-label">INCIDENTS RESOLVED</span>
         </div>
         <div class="stat-card">
-          <span class="stat-num">4</span>
-          <span class="stat-label">MAJOR PROJECTS</span>
+          <span class="stat-num">300+</span>
+          <span class="stat-label">FRESHMEN SPOKEN TO</span>
+        </div>
         </div>
       </div>
     </div>
@@ -629,11 +834,10 @@ footer{
         <div class="timeline-role">IT Support Engineer</div>
         <div class="timeline-company">PT. Meindo Elang Indah · Jakarta</div>
         <ul class="timeline-list">
-          <li>Deployed and configured 30+ PCs/notebooks across multiple sites</li>
-          <li>Automated backup systems ensuring reliable data integrity for 30+ devices</li>
-          <li>Diagnosed and resolved 50+ technical and network incidents</li>
-          <li>Performed routine inspections of power distribution, UPS, and network equipment</li>
-          <li>Maintained technical documentation to support operational tracking</li>
+          <li>Deployed and configured 30+ PCs/notebooks; automated backups for 30+ site devices ensuring reliable data integrity</li>
+          <li>Diagnosed and resolved 50+ technical and network incidents, identifying root causes and improving system stability</li>
+          <li>Performed routine inspections of power distribution panels, UPS units, and network equipment (heat, voltage, signal)</li>
+          <li>Maintained technical documentation and configuration records to support operational tracking</li>
         </ul>
       </div>
       <div class="timeline-item">
@@ -642,10 +846,8 @@ footer{
         <div class="timeline-role">Software Engineer</div>
         <div class="timeline-company">East Jakarta Tax Office · Jakarta</div>
         <ul class="timeline-list">
-          <li>Built web-based document archiving system using PHP + MySQL</li>
-          <li>Significantly improved internal document retrieval efficiency</li>
-          <li>Performed data validation and verification on tax records across 15+ official documents</li>
-          <li>Ensured dataset accuracy and data integrity for government operations</li>
+          <li>Built a web-based document archiving system (PHP, MySQL) that improved internal document retrieval efficiency</li>
+          <li>Performed data entry, validation, and verification on tax records, ensuring dataset accuracy across 15+ official documents</li>
         </ul>
       </div>
     </div>
@@ -661,50 +863,50 @@ footer{
     <div class="projects-grid">
       <div class="project-card" style="transition-delay:0.0s">
         <div class="project-icon">🤖</div>
-        <div class="project-title">AI Data Insight System</div>
-        <div class="project-desc">AI-powered pipeline that transforms raw datasets into actionable insights and decision recommendations — automated pattern detection at scale.</div>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Data Pipeline</span>
-          <span class="tag">Anomaly Detection</span>
-        </div>
-        <div class="project-accent"></div>
-      </div>
-      <div class="project-card" style="transition-delay:0.1s">
-        <div class="project-icon">🚀</div>
         <div class="project-title">IoT Delivery Robot T.I.F.A</div>
-        <div class="project-desc">End-to-end embedded system with ESP32, multi-sensor integration, closed-loop control, and real-time monitoring via mobile and web dashboards. Bachelor Thesis 2025.</div>
+        <div class="project-desc">End-to-end embedded system featuring multi-sensor integration, closed-loop control, and real-time monitoring via mobile and web dashboards. Designed as Full-Stack IoT & Embedded Engineer. <em>Bachelor Thesis 2025.</em></div>
         <div class="project-tags">
           <span class="tag">ESP32</span>
           <span class="tag">Python</span>
+          <span class="tag">Cloud</span>
           <span class="tag">MQTT</span>
-          <span class="tag">Cloud Dashboard</span>
         </div>
+        <button class="project-view-btn" onclick="openProjectModal('tifa')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          View Project
+        </button>
         <div class="project-accent"></div>
       </div>
-      <div class="project-card" style="transition-delay:0.2s">
+      <div class="project-card" style="transition-delay:0.1s">
         <div class="project-icon">🔗</div>
-        <div class="project-title">Blockchain E-Voting System</div>
-        <div class="project-desc">Secure decentralized voting platform using Solidity smart contracts on a local Ethereum blockchain, tested with 30+ users for tamper-proof democratic process.</div>
+        <div class="project-title">Blockchain E-Voting Web</div>
+        <div class="project-desc">Secure decentralized voting platform using Solidity smart contracts on a local Ethereum blockchain. Tested with 30 users for tamper-proof democratic process with full MetaMask frontend integration.</div>
         <div class="project-tags">
           <span class="tag">Solidity</span>
           <span class="tag">Web3.js</span>
           <span class="tag">Ganache</span>
           <span class="tag">MetaMask</span>
         </div>
+        <button class="project-view-btn" onclick="openProjectModal('evoting')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          View Project
+        </button>
         <div class="project-accent"></div>
       </div>
-      <div class="project-card" style="transition-delay:0.3s">
+      <div class="project-card" style="transition-delay:0.2s">
         <div class="project-icon">🌏</div>
         <div class="project-title">Bali Elevation Modeling</div>
-        <div class="project-desc">High-precision terrain analysis using MATLAB for topography gridding under Dr. Putu Harry Gunawan — results supported an academic publication draft.</div>
+        <div class="project-desc">High-precision terrain analysis using MATLAB topography gridding under Dr. Putu Harry Gunawan. Results supported an academic publication draft in geospatial research.</div>
         <div class="project-tags">
           <span class="tag">MATLAB</span>
-          <span class="tag">Topography</span>
+          <span class="tag">Topography Gridding</span>
           <span class="tag">Data Analysis</span>
           <span class="tag">Research</span>
         </div>
+        <button class="project-view-btn" onclick="openProjectModal('bali')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          View Project
+        </button>
         <div class="project-accent"></div>
       </div>
     </div>
@@ -727,28 +929,28 @@ footer{
         <div class="skill-track"><div class="skill-fill" data-pct="85"></div></div>
       </div>
       <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">AI / Machine Learning</span><span class="skill-pct">80%</span></div>
-        <div class="skill-track"><div class="skill-fill" data-pct="80"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">IoT & Embedded Systems</span><span class="skill-pct">88%</span></div>
+        <div class="skill-header"><span class="skill-name">IoT & Embedded Systems (ESP32)</span><span class="skill-pct">88%</span></div>
         <div class="skill-track"><div class="skill-fill" data-pct="88"></div></div>
       </div>
       <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Backend Development (PHP/JS)</span><span class="skill-pct">78%</span></div>
+        <div class="skill-header"><span class="skill-name">JavaScript / Web3.js / Solidity</span><span class="skill-pct">78%</span></div>
         <div class="skill-track"><div class="skill-fill" data-pct="78"></div></div>
       </div>
       <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Cybersecurity</span><span class="skill-pct">70%</span></div>
-        <div class="skill-track"><div class="skill-fill" data-pct="70"></div></div>
+        <div class="skill-header"><span class="skill-name">Backend Development (PHP / Bash)</span><span class="skill-pct">80%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="80"></div></div>
       </div>
       <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">JavaScript / Web3</span><span class="skill-pct">75%</span></div>
+        <div class="skill-header"><span class="skill-name">C / Kotlin / Android Studio</span><span class="skill-pct">72%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="72"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span class="skill-name">Cybersecurity / System Monitoring</span><span class="skill-pct">75%</span></div>
         <div class="skill-track"><div class="skill-fill" data-pct="75"></div></div>
       </div>
       <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Docker / DevOps (basic)</span><span class="skill-pct">60%</span></div>
-        <div class="skill-track"><div class="skill-fill" data-pct="60"></div></div>
+        <div class="skill-header"><span class="skill-name">Git / Docker / Figma / VS Code</span><span class="skill-pct">80%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="80"></div></div>
       </div>
     </div>
   </div>
@@ -826,10 +1028,10 @@ footer{
         </div>
       </div>
       <div class="cert-card" style="transition-delay:0.3s">
-        <div class="cert-icon">🎤</div>
+        <div class="cert-icon">🏆</div>
         <div>
-          <div class="cert-title">Guest Speaker PKKMB</div>
-          <div class="cert-org">Telkom University · 300+ Freshmen · Sep 2024</div>
+          <div class="cert-title">Endowment Fund Scholarship</div>
+          <div class="cert-org">Telkom University · Recipient</div>
         </div>
       </div>
       <div class="cert-card" style="transition-delay:0.4s">
@@ -840,10 +1042,17 @@ footer{
         </div>
       </div>
       <div class="cert-card" style="transition-delay:0.5s">
+        <div class="cert-icon">🎤</div>
+        <div>
+          <div class="cert-title">Guest Speaker — PKKMB</div>
+          <div class="cert-org">Telkom University · 300+ Freshmen · Sep 2024</div>
+        </div>
+      </div>
+      <div class="cert-card" style="transition-delay:0.6s">
         <div class="cert-icon">💬</div>
         <div>
-          <div class="cert-title">English Proficiency</div>
-          <div class="cert-org">TOEFL PBT 507 / B1 · Professional Working Proficiency</div>
+          <div class="cert-title">English Proficiency · TOEFL PBT 507</div>
+          <div class="cert-org">Professional Working Proficiency · B1 Level</div>
         </div>
       </div>
     </div>
@@ -973,10 +1182,10 @@ window.addEventListener('scroll', () => {
 (function(){
   const el = document.getElementById('typed-target');
   const phrases = [
-    'From Raw Data to Actionable Insights',
-    'Transforming Small Actions into Big Decisions with AI',
-    'Building Systems that Bridge Hardware & Software',
-    'Turning Complexity into Clarity, One Dataset at a Time'
+    'From Raw Data to Scalable Real-World Solutions',
+    'Bridging Hardware & Software with Code',
+    'Building Systems that Think, Monitor & Act',
+    'Full Stack · Data · IoT — End to End'
   ];
   let phraseIdx = 0, charIdx = 0, deleting = false;
   let cursor = document.createElement('span');
@@ -1037,5 +1246,248 @@ const skillObserver = new IntersectionObserver((entries) => {
 const skillsGrid = document.getElementById('skills-grid');
 if(skillsGrid) skillObserver.observe(skillsGrid);
 </script>
+<!-- ═══════════════════════════════════════
+     PROJECT MODAL
+     ═══════════════════════════════════════ -->
+<div class="pm-overlay" id="pmOverlay" onclick="handleOverlayClick(event)">
+  <div class="pm-box" id="pmBox">
+    <div class="pm-accent-bar"></div>
+    <div class="pm-inner">
+
+      <!-- Header -->
+      <div class="pm-header">
+        <div class="pm-header-left">
+          <div class="pm-icon-lg" id="pmIcon"></div>
+          <div>
+            <div class="pm-title" id="pmTitle"></div>
+            <div class="pm-role" id="pmRole"></div>
+          </div>
+        </div>
+        <button class="pm-close" onclick="closeProjectModal()" aria-label="Close">✕</button>
+      </div>
+
+      <!-- Tabs -->
+      <div class="pm-tabs">
+        <button class="pm-tab active" data-tab="info" onclick="switchTab(this,'info')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Info
+        </button>
+        <button class="pm-tab" data-tab="video" onclick="switchTab(this,'video')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          Video
+        </button>
+        <button class="pm-tab" data-tab="gallery" onclick="switchTab(this,'gallery')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Gallery
+        </button>
+      </div>
+
+      <!-- Panel: Info -->
+      <div class="pm-panel active" id="pm-panel-info">
+        <p class="pm-desc" id="pmDesc"></p>
+        <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.6rem">Tech Stack</div>
+        <div class="pm-tags-row" id="pmTags"></div>
+      </div>
+
+      <!-- Panel: Video -->
+      <div class="pm-panel" id="pm-panel-video">
+        <div id="pmVideoWrap"></div>
+      </div>
+
+      <!-- Panel: Gallery -->
+      <div class="pm-panel" id="pm-panel-gallery">
+        <div id="pmGallery"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Image Lightbox -->
+<div class="pm-lightbox" id="pmLightbox" onclick="closeLightbox()">
+  <button class="pm-lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="pmLightboxImg" src="" alt="Preview"/>
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+//  PROJECT DATA
+//  ─ Cara isi:
+//    youtube : ID video YT, cth "dQw4w9WgXcQ"
+//              atau "" jika belum ada
+//    images  : array URL gambar dari GitHub raw / mana saja
+//              cth "https://raw.githubusercontent.com/USERNAME/REPO/main/img/1.png"
+//              kosongkan array [] jika belum ada
+// ══════════════════════════════════════════════
+const PM_DATA = {
+  tifa: {
+    icon: '🤖',
+    title: 'IoT Delivery Robot T.I.F.A',
+    role: 'Full-Stack IoT & Embedded Engineer · Bachelor Thesis 2025',
+    desc: 'T.I.F.A adalah robot pengiriman otonom berbasis ESP32 yang mengintegrasikan multi-sensor (ultrasonik, IR, encoder), closed-loop control system, dan monitoring real-time melalui dashboard mobile & web. Sistem mencakup end-to-end: firmware C++/MicroPython, backend Python, MQTT broker, hingga antarmuka pengguna berbasis web. Dikerjakan sebagai proyek Tugas Akhir S1 Teknik Komputer Universitas Telkom 2025.',
+    tags: ['ESP32','Python','C++','MQTT','Cloud Dashboard','Multi-Sensor','IoT','Mobile App'],
+    // ── GANTI dengan YouTube Video ID milikmu ──
+    youtube: 'wmgic7a6TsI',
+    // ── GANTI dengan URL raw gambar dari GitHub ──
+    images: [
+      'https://placehold.co/800x450/0d1428/00c8ff?text=T.I.F.A+–+Photo+1',
+      'https://placehold.co/800x450/0d1428/9b5cff?text=T.I.F.A+–+Photo+2',
+      'https://placehold.co/800x450/0d1428/ff3dac?text=T.I.F.A+–+Photo+3',
+    ]
+  },
+  evoting: {
+    icon: '🔗',
+    title: 'Blockchain E-Voting Web',
+    role: 'Full Stack Developer · Web3 & Smart Contract Engineer',
+    desc: 'Platform voting elektronik terdesentralisasi yang dibangun di atas blockchain Ethereum lokal (Ganache). Smart contract ditulis dalam Solidity untuk memastikan setiap suara immutable dan tidak dapat dimanipulasi. Frontend terintegrasi penuh dengan MetaMask untuk autentikasi wallet. Diuji coba bersama 30 pengguna nyata dengan hasil verifikasi audit trail 100% akurat.',
+    tags: ['Solidity','Web3.js','Ganache','MetaMask','JavaScript','HTML/CSS','Ethereum','Smart Contract'],
+    // ── GANTI dengan YouTube Video ID milikmu ──
+    youtube: '', // ← isi dengan ID video YouTube E-Voting
+    // ── GANTI dengan URL raw gambar dari GitHub ──
+    images: [
+      'https://placehold.co/800x450/0d1428/00c8ff?text=E-Voting+–+Photo+1',
+      'https://placehold.co/800x450/0d1428/9b5cff?text=E-Voting+–+Photo+2',
+      'https://placehold.co/800x450/0d1428/ff3dac?text=E-Voting+–+Photo+3',
+    ]
+  },
+  bali: {
+    icon: '🌏',
+    title: 'Bali Elevation Modeling',
+    role: 'Data Engineer & Research Contributor · Under Dr. Putu Harry Gunawan',
+    desc: 'Proyek riset geospasial yang menghasilkan model elevasi terrain presisi tinggi dari Pulau Bali menggunakan teknik topography gridding MATLAB. Data survey lapangan diproses menjadi Digital Elevation Model (DEM) 3D yang kemudian divalidasi terhadap data satelit referensi. Hasil penelitian menjadi kontribusi dalam draft publikasi akademik bidang geospatial engineering.',
+    tags: ['MATLAB','Topography Gridding','DEM','GIS','Data Analysis','Research','Geospatial'],
+    // ── GANTI dengan YouTube Video ID milikmu ──
+    youtube: '', // ← isi dengan ID video YouTube Bali DEM
+    // ── GANTI dengan URL raw gambar dari GitHub ──
+    images: [
+      'https://placehold.co/800x450/0d1428/00c8ff?text=Bali+DEM+–+Photo+1',
+      'https://placehold.co/800x450/0d1428/9b5cff?text=Bali+DEM+–+Photo+2',
+      'https://placehold.co/800x450/0d1428/ff3dac?text=Bali+DEM+–+Photo+3',
+    ]
+  }
+};
+
+// ══════════════════════════════════════════════
+//  MODAL LOGIC
+// ══════════════════════════════════════════════
+let activeYTSrc = '';
+
+function openProjectModal(key) {
+  const p = PM_DATA[key];
+  if (!p) return;
+
+  // Populate header
+  document.getElementById('pmIcon').textContent = p.icon;
+  document.getElementById('pmTitle').textContent = p.title;
+  document.getElementById('pmRole').textContent = p.role;
+
+  // Info panel
+  document.getElementById('pmDesc').textContent = p.desc;
+  const tagsEl = document.getElementById('pmTags');
+  tagsEl.innerHTML = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+
+  // Video panel
+  const videoWrap = document.getElementById('pmVideoWrap');
+  if (p.youtube) {
+    activeYTSrc = `https://www.youtube.com/embed/${p.youtube}?rel=0&modestbranding=1`;
+    videoWrap.innerHTML = `
+      <div class="pm-video-wrap">
+        <iframe src="${activeYTSrc}" allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+      </div>
+      <a class="pm-yt-link" href="https://youtu.be/${p.youtube}" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19a2.68 2.68 0 0 0-1.89-1.9C18.25 5 12 5 12 5s-6.25 0-7.69.3a2.68 2.68 0 0 0-1.89 1.9A28 28 0 0 0 2 12a28 28 0 0 0 .42 4.81 2.68 2.68 0 0 0 1.89 1.9C5.75 19 12 19 12 19s6.25 0 7.69-.3a2.68 2.68 0 0 0 1.89-1.9A28 28 0 0 0 22 12a28 28 0 0 0-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg>
+        Buka di YouTube
+      </a>`;
+  } else {
+    activeYTSrc = '';
+    videoWrap.innerHTML = `
+      <div class="pm-no-video">
+        <span>🎬</span>
+        Video belum tersedia
+        <small style="opacity:0.6">Tambahkan YouTube ID di PM_DATA.${key}.youtube</small>
+      </div>`;
+  }
+
+  // Gallery panel
+  const galleryEl = document.getElementById('pmGallery');
+  if (p.images && p.images.length > 0) {
+    galleryEl.innerHTML = `
+      <div class="pm-gallery">
+        ${p.images.map((src, i) => `
+          <img class="pm-gallery-img" src="${src}" alt="Project image ${i+1}"
+            onclick="openLightbox('${src}')"
+            onerror="this.style.opacity='0.3';this.title='Gambar tidak ditemukan'"
+            loading="lazy"/>
+        `).join('')}
+        <div class="pm-gallery-caption">Klik gambar untuk memperbesar</div>
+      </div>`;
+  } else {
+    galleryEl.innerHTML = `
+      <div class="pm-no-gallery">
+        <span>🖼️</span>
+        Belum ada gambar<br>
+        <small>Tambahkan URL gambar GitHub di PM_DATA.${key}.images</small>
+      </div>`;
+  }
+
+  // Reset to first tab
+  switchTabById('info');
+
+  // Open modal
+  document.getElementById('pmOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+  document.getElementById('pmOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  // Stop video
+  const iframe = document.querySelector('.pm-video-wrap iframe');
+  if (iframe) iframe.src = iframe.src;
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('pmOverlay')) closeProjectModal();
+}
+
+// ── Tabs ──
+function switchTab(btn, tabId) {
+  document.querySelectorAll('.pm-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.pm-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('pm-panel-' + tabId).classList.add('active');
+}
+
+function switchTabById(tabId) {
+  document.querySelectorAll('.pm-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.tab === tabId);
+  });
+  document.querySelectorAll('.pm-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('pm-panel-' + tabId).classList.add('active');
+}
+
+// ── Lightbox ──
+function openLightbox(src) {
+  document.getElementById('pmLightboxImg').src = src;
+  document.getElementById('pmLightbox').classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('pmLightbox').classList.remove('open');
+}
+
+// Close modal on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (document.getElementById('pmLightbox').classList.contains('open')) {
+      closeLightbox();
+    } else {
+      closeProjectModal();
+    }
+  }
+});
+</script>
+
 </body>
 </html>
