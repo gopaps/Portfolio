@@ -955,9 +955,105 @@ footer{
 @media(min-width:769px){
   body{ cursor:none; }
   a,button,input,textarea,select,[role="button"]{ cursor:none; }
+  /* Restore cursor in modal so it never disappears */
+  .pm-overlay, .pm-overlay *{ cursor:auto; }
+  .pm-overlay a, .pm-overlay button,
+  .pm-overlay [role="button"]{ cursor:pointer; }
+  .pm-lightbox, .pm-lightbox *{ cursor:auto; }
+  .pm-lightbox button{ cursor:pointer; }
+  /* Hide custom cursor canvas when modal is open */
+  body.modal-open #cursor-canvas{ opacity:0; }
 }
 
-/* ─── MINI SHOOTER OVERLAY ─── */
+/* ─── PROFILE IMAGE ─── */
+.hero-profile-wrap{
+  display:flex;justify-content:flex-start;
+  margin-bottom:1.75rem;
+}
+.hero-profile-img{
+  width:140px;height:140px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1.5px solid rgba(0,200,255,0.25);
+  box-shadow:
+    0 0 0 4px rgba(0,200,255,0.06),
+    0 0 24px rgba(0,200,255,0.12),
+    0 8px 32px rgba(0,0,0,0.5);
+  animation:profile-float 5s ease-in-out infinite;
+  transition:transform 0.35s ease, box-shadow 0.35s ease;
+  background:var(--bg3);
+}
+.hero-profile-img:hover{
+  transform:scale(1.05) translateY(-4px);
+  box-shadow:
+    0 0 0 4px rgba(0,200,255,0.1),
+    0 0 36px rgba(0,200,255,0.2),
+    0 12px 40px rgba(0,0,0,0.6);
+}
+@keyframes profile-float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+@media(max-width:768px){
+  .hero-profile-img{width:90px;height:90px}
+}
+
+/* ─── PLANET ELEMENTS ─── */
+.planet{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:0;
+}
+.planet-1{
+  width:180px;height:180px;
+  bottom:8%;right:4%;
+  background:radial-gradient(circle at 38% 35%,
+    rgba(155,92,255,0.22) 0%,
+    rgba(80,20,160,0.13) 40%,
+    rgba(20,5,50,0.07) 70%,
+    transparent 100%);
+  box-shadow:
+    inset -18px -12px 40px rgba(0,0,0,0.35),
+    0 0 60px rgba(155,92,255,0.07);
+  animation:planet-drift1 18s ease-in-out infinite;
+}
+.planet-1::after{
+  content:'';position:absolute;inset:-8px;
+  border-radius:50%;
+  border:1px solid rgba(155,92,255,0.1);
+  animation:planet-ring 18s ease-in-out infinite;
+}
+.planet-2{
+  width:90px;height:90px;
+  top:12%;left:2%;
+  background:radial-gradient(circle at 42% 38%,
+    rgba(0,255,179,0.2) 0%,
+    rgba(0,120,100,0.1) 45%,
+    rgba(0,30,25,0.05) 70%,
+    transparent 100%);
+  box-shadow:
+    inset -10px -7px 24px rgba(0,0,0,0.3),
+    0 0 35px rgba(0,255,179,0.06);
+  animation:planet-drift2 24s ease-in-out infinite reverse;
+}
+@keyframes planet-drift1{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  33%{transform:translateY(-10px) rotate(1.2deg)}
+  66%{transform:translateY(6px) rotate(-0.8deg)}
+}
+@keyframes planet-drift2{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-8px) scale(1.03)}
+}
+@keyframes planet-ring{
+  0%,100%{transform:scale(1.12) rotate(0deg)}
+  50%{transform:scale(1.18) rotate(6deg)}
+}
+@media(max-width:768px){
+  .planet-1{width:100px;height:100px}
+  .planet-2{width:55px;height:55px}
+}
 #shooter-overlay{
   position:fixed;bottom:1.5rem;right:1.5rem;
   z-index:9990;display:none;
@@ -1127,7 +1223,19 @@ body.arcade-mode .section-title{
   <div class="hero-bg-glow"></div>
   <div class="hero-bg-glow2"></div>
   <div class="hero-bg-glow3"></div>
+  <!-- Planets — placed outside ship flight paths (ships fly in 15–35% vertical band) -->
+  <div class="planet planet-1"></div>
+  <div class="planet planet-2"></div>
   <div class="hero-inner">
+    <!-- Profile Image -->
+    <div class="hero-profile-wrap">
+      <img
+        src="assets/Profile.png"
+        alt="Anda Figo Haq"
+        class="hero-profile-img"
+        onerror="this.style.display='none'"
+      />
+    </div>
     <div class="hero-tag">Available for opportunities</div>
     <h1 class="hero-name">
       ANDA<br>
@@ -1650,11 +1758,13 @@ function openProjectModal(key) {
   // Show modal
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
+  document.body.classList.add('modal-open');
 }
 
 function closeProjectModal() {
   overlay.classList.remove('open');
   document.body.style.overflow = '';
+  document.body.classList.remove('modal-open');
   // Stop any playing iframe by re-assigning src
   const iframe = document.querySelector('.pm-video-wrap iframe');
   if (iframe) {
@@ -2193,18 +2303,37 @@ window.addEventListener('scroll', () => {
     [['C','green'], ['B','purple']],
     [['B','purple'],['A','cyan']],
   ];
+
+  // ── SHIP FLIGHT SAFE ZONE: 15%–38% of screen height ──
+  // Planets placed at bottom-right (>65% H) and top-left (<12% H)
+  // so ships and planets never overlap
   function createSquad(){
     const laneY = H * (0.15 + Math.random() * 0.20);
     const baseSpeed = isMobile() ? 0.55 : 0.75 + Math.random() * 0.25;
     const stagger = 130 + Math.random() * 80;
     const pair = PAIRINGS[Math.floor(Math.random() * PAIRINGS.length)];
     return [
-      createShip(pair[0][0], -60, laneY, baseSpeed, 0, pair[0][1]),
-      createShip(pair[1][0], -60 - stagger, laneY + (Math.random()-0.5)*18, baseSpeed * 0.86, 1, pair[1][1]),
+      createShip(pair[0][0], -60, laneY, baseSpeed, 0, pair[0][1], false),
+      createShip(pair[1][0], -60 - stagger, laneY + (Math.random()-0.5)*18, baseSpeed * 0.86, 1, pair[1][1], false),
     ];
   }
 
-  function createShip(type, x, baseY, vx, squadIdx, color){
+  // ── THIRD SHIP: solo scout — opposite or diagonal movement ──
+  function createScoutShip(){
+    const fromRight = Math.random() < 0.5;
+    // Scout flies in 20–38% vertical range, below main squad lanes
+    const laneY = H * (0.24 + Math.random() * 0.14);
+    const speed = (isMobile() ? 0.4 : 0.5 + Math.random() * 0.2);
+    // diagonal: slight vertical drift
+    const diagVY = (Math.random() - 0.5) * 0.25;
+    const startX = fromRight ? W + 60 : -60;
+    const vx = fromRight ? -speed : speed;
+    const type = ['A','B','C'][Math.floor(Math.random()*3)];
+    const col = type === 'A' ? 'cyan' : type === 'B' ? 'purple' : 'green';
+    return createShip(type, startX, laneY, vx, 0, col, true, diagVY, fromRight);
+  }
+
+  function createShip(type, x, baseY, vx, squadIdx, color, isScout=false, scoutVY=0, fromRight=false){
     return {
       type, x, y: baseY, baseY,
       vx, vy: 0,
@@ -2218,7 +2347,10 @@ window.addEventListener('scroll', () => {
       squadIdx,
       color,
       trail: [],
-      alive: true
+      alive: true,
+      isScout,
+      scoutVY,
+      fromRight
     };
   }
 
@@ -2226,6 +2358,11 @@ window.addEventListener('scroll', () => {
   let squads = [];
   let squadTimer = 0;
   const SQUAD_INTERVAL = isMobile() ? 900 : 700;
+
+  // Scout ship system
+  let scout = null;
+  let scoutTimer = 0;
+  const SCOUT_INTERVAL = isMobile() ? 1200 : 950;
 
   function spawnSquadIfNeeded(){
     // Always keep at least one squad in flight
@@ -2235,8 +2372,20 @@ window.addEventListener('scroll', () => {
     }
   }
 
+  function spawnScoutIfNeeded(){
+    scoutTimer++;
+    if(scoutTimer > SCOUT_INTERVAL){
+      scoutTimer = 0;
+      if(!scout || !scout.alive){
+        scout = createScoutShip();
+      }
+    }
+  }
+
   // First squad immediately
   squads = [createSquad()];
+  // Scout spawns a bit later
+  setTimeout(() => { scout = createScoutShip(); }, 3500);
 
   // ── Per-ship draw ──
   function drawShip(sh){
@@ -2246,6 +2395,10 @@ window.addEventListener('scroll', () => {
 
     ctx.save();
     ctx.translate(sh.x, sh.y);
+    // Mirror scout ships flying right-to-left
+    if(sh.isScout && sh.fromRight){
+      ctx.scale(-1, 1);
+    }
 
     if(sh.type === 'A') drawTypeA(ctx, glow, sh.ef, boost);
     else if(sh.type === 'B') drawTypeB(ctx, glow, sh.ef, boost);
@@ -2276,15 +2429,17 @@ window.addEventListener('scroll', () => {
     }
   }
 
-  // ── Laser spawn — fires forward (rightward) ──
+  // ── Laser spawn — fires forward ──
   function spawnLaserFrom(sh){
     const col = sh.color === 'cyan'   ? ['rgba(0,229,255,', 'rgba(180,255,255,'] :
                 sh.color === 'purple' ? ['rgba(200,130,255,','rgba(255,61,172,'] :
                                         ['rgba(0,255,179,',  'rgba(150,255,220,'];
+    // Scout flying right-to-left fires left
+    const dir = (sh.isScout && sh.fromRight) ? -1 : 1;
     lasers.push({
-      x: sh.x + 17,   // fire from nose (right side)
+      x: sh.x + 17 * dir,
       y: sh.y,
-      vx: sh.vx + 6.5,
+      vx: sh.vx + 6.5 * dir,
       vy: (Math.random() - 0.5) * 0.4,
       life: 1,
       trail: [],
@@ -2331,6 +2486,30 @@ window.addEventListener('scroll', () => {
 
         if(sh.x > W + 160) sh.alive = false;
       }
+    }
+
+    // ── Update scout ship ──
+    spawnScoutIfNeeded();
+    if(scout && scout.alive){
+      const boost = heroHovered;
+      const spd = boost ? scout.vx * 1.4 : scout.vx;
+      scout.x += spd;
+      scout.phase += scout.phaseSpeed * 0.85;
+      // Diagonal drift added to sine float
+      scout.baseY += scout.scoutVY;
+      scout.y = scout.baseY + Math.sin(scout.phase) * scout.floatAmp;
+      if(scout.glowBoost > 0) scout.glowBoost -= 0.04;
+
+      // Scout shoots less frequently
+      scout.shootTimer++;
+      if(scout.shootTimer >= scout.shootInterval * 1.3){
+        scout.shootTimer = 0;
+        spawnLaserFrom(scout);
+      }
+      updateTrail(scout);
+
+      // Off-screen check (both directions)
+      if(scout.x > W + 160 || scout.x < -160) scout.alive = false;
     }
   }
 
@@ -2396,10 +2575,12 @@ window.addEventListener('scroll', () => {
     // Draw trails first (behind ships)
     for(const squad of squads)
       for(const sh of squad) if(sh.alive) drawTrail(sh);
+    if(scout && scout.alive) drawTrail(scout);
 
     // Draw ships
     for(const squad of squads)
       for(const sh of squad) if(sh.alive) drawShip(sh);
+    if(scout && scout.alive) drawShip(scout);
 
     drawLasers();
     drawBursts();
