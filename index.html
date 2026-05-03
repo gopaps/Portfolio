@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Anda Figo Haq — AI Data Analyst · Data Engineer · IoT Engineer</title>
+<title>Anda Figo Haq — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -974,14 +974,20 @@ footer{
   width:190px;height:190px;
   border-radius:50%;
   object-fit:cover;
+  object-position:center top;
+  image-rendering:auto;
+  will-change:transform;
+  -webkit-font-smoothing:antialiased;
   border:1.5px solid rgba(0,200,255,0.25);
   box-shadow:
     0 0 0 4px rgba(0,200,255,0.06),
     0 0 24px rgba(0,200,255,0.12),
     0 8px 32px rgba(0,0,0,0.5);
   animation:profile-float 5s ease-in-out infinite;
-  transition:transform 0.35s ease, box-shadow 0.35s ease;
+  transition:transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
   background:var(--bg3);
+  cursor:pointer;
+  filter:none;
 }
 .hero-profile-img:hover{
   transform:scale(1.05) translateY(-4px);
@@ -989,6 +995,7 @@ footer{
     0 0 0 4px rgba(0,200,255,0.1),
     0 0 36px rgba(0,200,255,0.2),
     0 12px 40px rgba(0,0,0,0.6);
+  filter:brightness(1.08);
 }
 @keyframes profile-float{
   0%,100%{transform:translateY(0)}
@@ -996,6 +1003,61 @@ footer{
 }
 @media(max-width:768px){
   .hero-profile-img{width:120px;height:120px}
+}
+
+/* ─── PHOTO LIGHTBOX (profile + cert images) ─── */
+#photo-lightbox{
+  position:fixed;inset:0;z-index:999998;
+  background:rgba(0,0,0,0.92);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  display:flex;align-items:center;justify-content:center;
+  padding:2rem;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.28s ease;
+}
+#photo-lightbox.open{opacity:1;pointer-events:all}
+#photo-lightbox-img{
+  max-width:min(90vw,700px);
+  max-height:85vh;
+  border-radius:16px;
+  object-fit:contain;
+  box-shadow:
+    0 0 0 1px rgba(0,200,255,0.15),
+    0 0 80px rgba(0,200,255,0.12),
+    0 40px 100px rgba(0,0,0,0.7);
+  transform:scale(0.94);
+  transition:transform 0.32s cubic-bezier(0.34,1.56,0.64,1);
+  image-rendering:auto;
+}
+#photo-lightbox.open #photo-lightbox-img{transform:scale(1)}
+#photo-lightbox-close{
+  position:absolute;top:1.5rem;right:1.5rem;
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.06);
+  color:#fff;font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all 0.2s;
+  font-family:var(--font-mono);
+}
+#photo-lightbox-close:hover{background:rgba(255,61,172,0.2);border-color:var(--pink)}
+#photo-lightbox-caption{
+  position:absolute;bottom:2rem;left:50%;
+  transform:translateX(-50%);
+  font-family:var(--font-mono);font-size:0.68rem;
+  color:rgba(232,234,246,0.5);letter-spacing:0.1em;
+  white-space:nowrap;
+}
+
+/* cert guest speaker image — clickable */
+.cert-img-clickable{
+  cursor:pointer;
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.cert-img-clickable:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 16px rgba(0,200,255,0.3);
 }
 
 /* ─── PLANET ELEMENTS ─── */
@@ -1233,6 +1295,7 @@ body.arcade-mode .section-title{
         src="assets/Profile.png"
         alt="Anda Figo Haq"
         class="hero-profile-img"
+        onclick="openPhotoLightbox('assets/Profile.png','Anda Figo Haq')"
         onerror="this.style.display='none'"
       />
     </div>
@@ -1518,7 +1581,7 @@ body.arcade-mode .section-title{
       <div class="cert-card" style="transition-delay:0.2s"><div class="cert-icon">🌍</div><div><div class="cert-title">Topography Research Contributor</div><div class="cert-org">Humic Engineering · 2024</div></div></div>
       <div class="cert-card" style="transition-delay:0.3s"><div class="cert-icon">🏆</div><div><div class="cert-title">Endowment Fund Scholarship</div><div class="cert-org">Telkom University · Recipient</div></div></div>
       <div class="cert-card" style="transition-delay:0.4s"><div class="cert-icon">🔬</div><div><div class="cert-title">Laboratory Assistant</div><div class="cert-org">SECULAB Cybersecurity Lab · Jun 2024 – Jun 2025</div></div></div>
-      <div class="cert-card" style="transition-delay:0.5s"><div class="cert-icon" style="padding:0;overflow:hidden;border-radius:12px;width:46px;height:46px;flex-shrink:0"><img src="assets/Guestspeaker.png" alt="Guest Speaker" style="width:100%;height:100%;object-fit:cover;display:block"/></div><div><div class="cert-title">Guest Speaker — PKKMB</div><div class="cert-org">Telkom University · 300+ Freshmen · Sep 2024</div></div></div>
+      <div class="cert-card" style="transition-delay:0.5s"><div class="cert-icon" style="padding:0;overflow:hidden;border-radius:12px;width:46px;height:46px;flex-shrink:0"><img src="assets/Guestspeaker.png" alt="Guest Speaker" class="cert-img-clickable" onclick="openPhotoLightbox('assets/Guestspeaker.png','Guest Speaker — PKKMB · Telkom University')" style="width:100%;height:100%;object-fit:cover;display:block"/></div><div><div class="cert-title">Guest Speaker — PKKMB</div><div class="cert-org">Telkom University · 300+ Freshmen · Sep 2024</div></div></div>
       <div class="cert-card" style="transition-delay:0.6s"><div class="cert-icon">💬</div><div><div class="cert-title">English Proficiency · TOEFL PBT 507</div><div class="cert-org">Professional Working Proficiency · B1 Level</div></div></div>
     </div>
   </div>
@@ -2654,7 +2717,38 @@ function showNotify(msg, duration){
 }
 
 // ══════════════════════════════════════════════
-// LIGHTSABER CURSOR TRAIL
+// PHOTO LIGHTBOX — profile & cert images
+// ══════════════════════════════════════════════
+function openPhotoLightbox(src, caption){
+  const lb   = document.getElementById('photo-lightbox');
+  const img  = document.getElementById('photo-lightbox-img');
+  const cap  = document.getElementById('photo-lightbox-caption');
+  img.src    = src;
+  cap.textContent = caption || '';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.body.classList.add('modal-open');
+}
+function closePhotoLightbox(){
+  const lb  = document.getElementById('photo-lightbox');
+  const img = document.getElementById('photo-lightbox-img');
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  document.body.classList.remove('modal-open');
+  setTimeout(() => { img.src = ''; }, 300);
+}
+document.getElementById('photo-lightbox').addEventListener('click', function(e){
+  if(e.target === this) closePhotoLightbox();
+});
+document.getElementById('photo-lightbox-close').addEventListener('click', closePhotoLightbox);
+// ESC key juga menutup photo lightbox
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && document.getElementById('photo-lightbox').classList.contains('open')){
+    closePhotoLightbox();
+  }
+});
+
+
 // ══════════════════════════════════════════════
 (function(){
   if(window.innerWidth < 769) return;
@@ -2994,5 +3088,12 @@ const skillsGrid = document.getElementById('skills-grid');
 if(skillsGrid) skillObserver.observe(skillsGrid);
 
 </script>
+<!-- PHOTO LIGHTBOX (profile + cert images) -->
+<div id="photo-lightbox">
+  <button id="photo-lightbox-close" aria-label="Close">✕</button>
+  <img id="photo-lightbox-img" src="" alt=""/>
+  <div id="photo-lightbox-caption"></div>
+</div>
+
 </body>
 </html>
