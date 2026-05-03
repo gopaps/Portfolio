@@ -1135,6 +1135,23 @@ footer{
         <div class="project-accent"></div>
       </div>
 
+      <div class="project-card" style="transition-delay:0.36s">
+        <div class="project-icon">🗂️</div>
+        <div class="project-title">Web Tax Archive System</div>
+        <div class="project-desc">Web-based document archiving system built with PHP & MySQL for East Jakarta Tax Office. Improved internal document retrieval efficiency and validated 15+ official tax records during internship.</div>
+        <div class="project-tags">
+          <span class="tag">PHP</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Gov Project</span>
+        </div>
+        <button class="project-view-btn" onclick="openProjectModal('webtax')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+          View Project
+        </button>
+        <div class="project-accent"></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1237,7 +1254,7 @@ footer{
       <div class="cert-card" style="transition-delay:0.2s"><div class="cert-icon">🌍</div><div><div class="cert-title">Topography Research Contributor</div><div class="cert-org">Humic Engineering · 2024</div></div></div>
       <div class="cert-card" style="transition-delay:0.3s"><div class="cert-icon">🏆</div><div><div class="cert-title">Endowment Fund Scholarship</div><div class="cert-org">Telkom University · Recipient</div></div></div>
       <div class="cert-card" style="transition-delay:0.4s"><div class="cert-icon">🔬</div><div><div class="cert-title">Laboratory Assistant</div><div class="cert-org">SECULAB Cybersecurity Lab · Jun 2024 – Jun 2025</div></div></div>
-      <div class="cert-card" style="transition-delay:0.5s"><div class="cert-icon">🎤</div><div><div class="cert-title">Guest Speaker — PKKMB</div><div class="cert-org">Telkom University · 300+ Freshmen · Sep 2024</div></div></div>
+      <div class="cert-card" style="transition-delay:0.5s"><div class="cert-icon" style="padding:0;overflow:hidden;border-radius:12px;width:46px;height:46px;flex-shrink:0"><img src="assets/Guestspeaker.png" alt="Guest Speaker" style="width:100%;height:100%;object-fit:cover;display:block"/></div><div><div class="cert-title">Guest Speaker — PKKMB</div><div class="cert-org">Telkom University · 300+ Freshmen · Sep 2024</div></div></div>
       <div class="cert-card" style="transition-delay:0.6s"><div class="cert-icon">💬</div><div><div class="cert-title">English Proficiency · TOEFL PBT 507</div><div class="cert-org">Professional Working Proficiency · B1 Level</div></div></div>
     </div>
   </div>
@@ -1355,9 +1372,9 @@ const PM_DATA = {
     tags: ['ESP32','Python','C++','MQTT','Cloud Dashboard','Multi-Sensor','IoT','Mobile App'],
     youtube: 'wmgic7a6TsI',
     images: [
-      'https://placehold.co/800x450/0d1428/00c8ff?text=TIFA+Photo+1',
-      'https://placehold.co/800x450/0d1428/9b5cff?text=TIFA+Photo+2',
-      'https://placehold.co/800x450/0d1428/ff3dac?text=TIFA+Photo+3',
+      'assets/Tifa.png',
+      'assets/Tifa2.png',
+      'assets/Tifa3.png',
     ]
   },
   evoting: {
@@ -1368,8 +1385,7 @@ const PM_DATA = {
     tags: ['Solidity','Web3.js','Ganache','MetaMask','JavaScript','HTML/CSS','Ethereum','Smart Contract'],
     youtube: '',
     images: [
-      'https://placehold.co/800x450/0d1428/00c8ff?text=EVoting+Photo+1',
-      'https://placehold.co/800x450/0d1428/9b5cff?text=EVoting+Photo+2',
+      'assets/Evoting.png',
     ]
   },
   bali: {
@@ -1380,8 +1396,21 @@ const PM_DATA = {
     tags: ['MATLAB','Topography Gridding','DEM','GIS','Data Analysis','Research','Geospatial'],
     youtube: '',
     images: [
-      'https://placehold.co/800x450/0d1428/00c8ff?text=BaliDEM+Photo+1',
-      'https://placehold.co/800x450/0d1428/9b5cff?text=BaliDEM+Photo+2',
+      'assets/Bali.png',
+      'assets/Bali2.jpg',
+      'assets/Bali3.png',
+    ]
+  },
+  webtax: {
+    icon: '🗂️',
+    title: 'Web Tax Archive System',
+    role: 'Software Engineer Intern · East Jakarta Tax Office · 2024',
+    desc: 'Sistem pengarsipan dokumen berbasis web yang dibangun menggunakan PHP dan MySQL untuk Kantor Pajak Jakarta Timur. Sistem ini meningkatkan efisiensi pengambilan dokumen internal secara signifikan. Mencakup fitur input data, validasi, dan verifikasi catatan pajak — memastikan akurasi dataset pada 15+ dokumen resmi selama masa magang.',
+    tags: ['PHP','MySQL','HTML/CSS','JavaScript','Web Development','Document Archive','Government'],
+    youtube: '',
+    images: [
+      'assets/WebTax.jpg',
+      'assets/WebTax2.jpg',
     ]
   }
 };
