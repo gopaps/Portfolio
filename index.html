@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Figo — Electrical Engineering | Renewable Energy, Power Systems, Smart Grid</title>
+<meta name="description" content="Portfolio of Figo (Anda Figo Haq): Electrical Engineering postgraduate student focused on renewable energy, power systems and smart grid."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={darkMode:'class'}</script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.441.0/dist/umd/lucide.min.js"></script>
+<style>
+:root{--bg:#fbf8f1;--card:#fff;--ink:#1d1c1a;--mut:#6b675f;--line:#ddd6c6;--ye:#f5b800;--am:#8f6400;--ch:#1d1c1a}
+.dark{--bg:#141310;--card:#1d1b17;--ink:#f3efe4;--mut:#a8a293;--line:#37322a;--ye:#ffc928;--am:#e8b53a;--ch:#0d0c0a}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.sf{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-.015em;line-height:1.15}
+h2{font-size:clamp(1.6rem,3vw,2.1rem)}
+.mut{color:var(--mut)}.ln{border-top:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.7rem 1.3rem;border-radius:2px;font-weight:600;font-size:.93rem;border:1px solid var(--ye);background:var(--ye);color:#1d1c1a;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.o{background:transparent;color:var(--ink);border-color:var(--ink)}.btn.o:hover{background:var(--ink);color:var(--bg)}
+.lk{font-weight:600;color:var(--am);border-bottom:1px solid currentColor;cursor:pointer;background:none;padding:0}
+.ib{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:2px;border:1px solid var(--line);background:var(--card);cursor:pointer;color:inherit}
+svg.lucide{width:18px;height:18px}
+:focus-visible{outline:2px solid var(--am);outline-offset:3px}
+.sun{display:none}.dark .sun{display:block}.dark .moon{display:none}
+.nl a{color:var(--mut);font-size:.92rem;transition:color .2s}.nl a:hover{color:var(--am)}
+.sg{display:inline-flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.sg button{padding:.35rem .6rem;font-size:.8rem;font-weight:600;background:var(--card);color:var(--mut);border:0;cursor:pointer}
+.sg button[aria-pressed=true]{background:var(--ye);color:#1d1c1a}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+.fl{stroke:var(--am);stroke-width:2.5;stroke-dasharray:6 8;animation:fw 1.2s linear infinite;fill:none}
+@keyframes fw{to{stroke-dashoffset:-14}}
+.ph{display:block;width:100%;max-width:300px;height:auto;border:1px solid var(--line);cursor:zoom-in}
+.bk{position:relative;aspect-ratio:4/3;max-width:780px;margin:0 auto;perspective:2000px;touch-action:pan-y}
+.lf{position:absolute;inset:0;margin:0;transform-origin:left center;transition:transform .9s cubic-bezier(.55,0,.25,1);backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border:1px solid var(--line);border-radius:2px 8px 8px 2px;box-shadow:0 14px 34px rgba(0,0,0,.14);overflow:hidden;display:flex;flex-direction:column}
+.lf.f{transform:rotateY(-180deg)}
+.lf::after{content:"";position:absolute;inset:0 auto 0 0;width:26px;background:linear-gradient(90deg,rgba(0,0,0,.2),transparent);pointer-events:none}
+.lf img{flex:1;min-height:0;width:100%;object-fit:cover;cursor:zoom-in}
+.lf figcaption{padding:.75rem 1.1rem .85rem 2rem;font-size:.9rem;display:flex;justify-content:space-between;gap:1rem}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:0;cursor:pointer;transition:background .2s}.dot.on{background:var(--ye)}
+.chip{padding:.3rem 0;border:0;border-bottom:2px solid transparent;background:none;color:var(--mut);font-weight:600;font-size:.92rem;cursor:pointer}
+.chip.on{color:var(--ink);border-color:var(--ye)}
+.cv{display:grid;place-items:center;aspect-ratio:16/10;width:100%;overflow:hidden;border:1px solid var(--line);background:var(--card);padding:0;cursor:pointer}
+.cv img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.cv:hover img{transform:scale(1.03)}
+.cv svg{width:92%;height:auto}
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;overflow:auto;color:var(--ink)}
+dialog::backdrop{background:rgba(10,9,6,.8)}
+.mi{max-width:800px;margin:3vh auto;padding:1.75rem;position:relative;background:var(--bg);border:1px solid var(--line)}
+.mi h4{font-weight:600;margin:1.6rem 0 .5rem;padding-top:.9rem;border-top:1px solid var(--line)}
+.vd{width:100%;height:auto;max-height:70vh;background:#000;display:block}
+.gm{position:relative;aspect-ratio:16/10;background:var(--card);border:1px solid var(--line);display:grid;place-items:center}
+.gm img{width:100%;height:100%;object-fit:contain;cursor:zoom-in}.gm svg{width:92%;height:auto}
+.gn{position:absolute;top:50%;transform:translateY(-50%)}
+.ar{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem}
+.ar span{padding:.35rem .7rem;border:1px solid var(--line);background:var(--card);font-size:.85rem}.ar i{color:var(--am);font-style:normal}
+.mx{display:flex;flex-wrap:wrap;gap:1.5rem 2.5rem}.mx b{display:block;font-family:Newsreader,serif;font-size:1.9rem;font-weight:500;color:var(--am);line-height:1.1}.mx small{color:var(--mut)}
+.ty{font-size:.8rem;color:var(--mut);border:1px solid var(--line);padding:0 .4rem}
+#contact input,#contact textarea{width:100%;padding:.7rem 0;border:0;border-bottom:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font:inherit}
+#contact ::placeholder{color:rgba(255,255,255,.6)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav class="sticky top-0 z-50 border-b" style="background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-color:var(--line)">
+ <div class="max-w-6xl mx-auto px-5 h-16 flex items-center gap-5">
+  <a href="#about" class="sf text-xl">Figo</a>
+  <div class="nl hidden md:flex gap-7 ml-auto"><a href="#about" data-i="nabout"></a><a href="#experience" data-i="nexp"></a><a href="#projects" data-i="nproj"></a><a href="#skills" data-i="nskills"></a><a href="#contact" data-i="ncontact"></a></div>
+  <div class="flex items-center gap-2 ml-auto md:ml-0">
+   <a class="btn hidden sm:inline-flex" style="padding:.45rem .9rem;font-size:.85rem" href="assets/CV_Figo.pdf" download data-i="cv"></a>
+   <div class="sg" role="group" aria-label="Language"><button id="lEN" aria-pressed="true">EN</button><button id="lID" aria-pressed="false">ID</button></div>
+   <button class="ib" id="th" data-al="th"><i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i></button>
+   <button class="ib md:hidden" id="mb" aria-expanded="false" data-al="menu"><i data-lucide="menu"></i></button>
+  </div>
+ </div>
+ <div id="mm" class="nl hidden flex-col gap-3 px-5 pb-4"><a href="#about" data-i="nabout"></a><a href="#experience" data-i="nexp"></a><a href="#projects" data-i="nproj"></a><a href="#skills" data-i="nskills"></a><a href="#contact" data-i="ncontact"></a><a href="assets/CV_Figo.pdf" download data-i="cv"></a></div>
+</nav>
+
+<header id="about" class="max-w-6xl mx-auto px-5 pt-12 pb-12">
+ <div class="grid md:grid-cols-[1fr_300px] gap-8 md:gap-14 items-start">
+  <div class="order-2 md:order-1">
+   <h1 class="sf" style="font-size:clamp(2.8rem,6vw,4.2rem)">Figo</h1>
+   <p class="mut mt-1" style="font-size:1.05rem">Anda Figo Haq</p>
+   <p class="sf mt-3" style="font-size:clamp(1.3rem,2.6vw,1.7rem)" data-i="role"></p>
+   <p class="mt-1 font-semibold" style="color:var(--am)">Renewable Energy | Power Systems | Smart Grid</p>
+   <p class="mt-5 max-w-xl" data-i="intro"></p>
+   <div class="grid grid-cols-2 sm:flex gap-3 mt-7">
+    <a class="btn" href="assets/CV_Figo.pdf" download data-i="cv"></a>
+    <a class="btn o" href="#projects" data-i="vp"></a>
+   </div>
+   <p class="mt-4 flex gap-6"><a class="lk" href="#contact" data-i="cm"></a><a class="lk" href="https://linkedin.com/in/figohaq" target="_blank" rel="noopener">LinkedIn</a></p>
+  </div>
+  <img class="ph order-1 md:order-2" id="pf" src="assets/Profile.png" alt="Figo" onerror="this.style.display='none'"/>
+ </div>
+ <figure class="mt-12 ln pt-5 max-w-2xl">
+  <div id="hd" role="img" aria-label="Solar PV, BESS, Smart Grid"></div>
+  <figcaption class="sf mut mt-2" data-i="slogan"></figcaption>
+ </figure>
+</header>
+
+<section id="experience" class="py-16 ln" style="background:var(--card)">
+ <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-[200px_1fr] gap-4 md:gap-10 rv">
+  <h2 data-i="ext"></h2><div id="tl"></div>
+ </div>
+</section>
+
+<section id="projects" class="max-w-6xl mx-auto px-5 py-16">
+ <div class="grid md:grid-cols-[200px_1fr] gap-4 md:gap-10 rv"><h2 data-i="nproj"></h2><p class="mut max-w-xl" data-i="pintro"></p></div>
+ <div class="flex flex-wrap gap-x-6 gap-y-2 my-8 rv" id="ch">
+  <button class="chip on" data-c="all" data-i="all"></button><button class="chip" data-c="re" data-i="fre"></button><button class="chip" data-c="iot" data-i="fiot"></button><button class="chip" data-c="sys" data-i="fsys"></button>
+ </div>
+ <div id="pg"></div>
+</section>
+
+<section id="showcase" class="py-16 ln" style="background:var(--card)">
+ <div class="max-w-6xl mx-auto px-5">
+  <div class="grid md:grid-cols-[200px_1fr] gap-4 md:gap-10 mb-10 rv"><h2>Energy Showcase</h2><p class="mut max-w-xl" data-i="showp"></p></div>
+  <div class="bk rv" id="bk" aria-roledescription="carousel"></div>
+  <div class="flex items-center justify-center gap-4 mt-7">
+   <button class="ib" id="pv" data-al="prev"><i data-lucide="chevron-left"></i></button>
+   <div id="dots" class="flex gap-2"></div>
+   <button class="ib" id="nx" data-al="next"><i data-lucide="chevron-right"></i></button>
+  </div>
+ </div>
+</section>
+
+<section id="skills" class="max-w-6xl mx-auto px-5 py-16">
+ <div class="grid md:grid-cols-[200px_1fr] gap-4 md:gap-10 rv"><h2 data-i="nskills"></h2><div class="grid sm:grid-cols-2 gap-x-10 gap-y-8" id="sk"></div></div>
+</section>
+
+<section id="contact" class="py-16" style="background:var(--ch);color:#f3efe4">
+ <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-12">
+  <div>
+   <h2 data-i="ctt"></h2><p class="mt-3 opacity-80" data-i="ctp"></p>
+   <div class="flex flex-wrap gap-x-5 gap-y-2 mt-6 font-semibold">
+    <a class="lk" style="color:#ffc928" href="mailto:haqfigo@gmail.com">haqfigo@gmail.com</a>
+    <a class="lk" style="color:#ffc928" href="tel:+6282133360116">+62 821-333-60116</a>
+    <a class="lk" style="color:#ffc928" href="https://linkedin.com/in/figohaq" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="lk" style="color:#ffc928" href="https://github.com/figohaq" target="_blank" rel="noopener">GitHub</a>
+   </div>
+  </div>
+  <form id="cf" class="grid gap-4">
+   <input name="n" required data-ph="nm"/><input name="e" type="email" required data-ph="em"/><textarea name="m" rows="3" required data-ph="msg"></textarea>
+   <button class="btn justify-self-start" type="submit" data-i="send"></button>
+  </form>
+ </div>
+</section>
+<footer class="text-center py-6 text-sm mut">© <span id="yr"></span> Anda Figo Haq · South Jakarta, Indonesia</footer>
+<button id="up" class="ib fixed bottom-5 right-5 z-40 opacity-0 pointer-events-none transition-opacity" data-al="up"><i data-lucide="arrow-up"></i></button>
+
+<dialog id="pm" aria-labelledby="mt"><div class="mi"><button class="ib absolute top-4 right-4 z-10" id="mx" data-al="close"><i data-lucide="x"></i></button>
+ <div id="mh"></div>
+ <div id="vwb"><h4 data-i="video"></h4><div id="vw"></div></div>
+ <h4 data-i="gallery"></h4><div class="gm" id="gm"></div><p class="mut text-sm mt-2 text-right" id="gc"></p>
+ <div id="md"></div></div></dialog>
+<dialog id="lb"><img id="li" alt="" style="max-width:94vw;max-height:90vh;margin:3vh auto;display:block"/></dialog>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const ic=()=>lucide.createIcons();
+let L='en',CF='all',LF=[];
+try{L=localStorage.getItem('lg')==='id'?'id':'en'}catch(e){}
+const x=v=>Array.isArray(v)?v[L==='en'?0:1]:v;
+const I={nabout:['About','Tentang'],nexp:['Experience','Pengalaman'],nproj:['Projects','Proyek'],nskills:['Skills','Keahlian'],ncontact:['Contact','Kontak'],
+cv:['Download CV','Unduh CV'],vp:['View Projects','Lihat Proyek'],cm:['Contact Me','Hubungi Saya'],
+role:['Electrical Engineering Postgraduate Student','Mahasiswa Pascasarjana Teknik Elektro'],
+intro:['Master’s student at Universitas Indonesia focusing on Energy Management and Power Systems, with a Cum Laude B.Eng. in Computer Engineering from Telkom University. My interests are solar PV and BESS integration, smart grid monitoring, and power system simulation, supported by programming and IoT for analysis and automation.','Mahasiswa S2 Teknik Elektro Universitas Indonesia dengan fokus Manajemen Energi dan Ketenagalistrikan, lulusan Cum Laude S1 Teknik Komputer Telkom University. Minat saya mencakup integrasi Solar PV dan BESS, pemantauan smart grid, dan simulasi sistem tenaga, dengan pemrograman dan IoT sebagai alat bantu analisis dan otomatisasi.'],
+slogan:['Powering the Clean Energy Transition through Smart Grid & Digital Automation','Mendukung Transisi Energi Bersih melalui Smart Grid & Otomatisasi Digital'],
+ext:['Experience & Education','Pengalaman & Pendidikan'],
+pintro:['Programming and IoT support energy automation and data acquisition. Open a project to see its video, gallery, architecture and results.','Pemrograman dan IoT mendukung otomatisasi energi dan akuisisi data. Buka proyek untuk melihat video, galeri, arsitektur, dan hasilnya.'],
+all:['All','Semua'],fre:['Renewable Energy & Smart Grid','Renewable Energy & Smart Grid'],fiot:['IoT & Energy Telemetry','IoT & Energy Telemetry'],fsys:['Systems & Data Analytics','Systems & Data Analytics'],
+det:['View details','Lihat detail'],video:['Video','Video'],gallery:['Gallery','Galeri'],sum:['Summary','Ringkasan'],arch:['Technical architecture','Arsitektur teknis'],tools:['Software & devices','Software & perangkat'],met:['Metrics & results','Metrik & hasil'],rl:['Technical role','Peran teknis'],
+showp:['Documentation of projects, fieldwork and research. Swipe the pages, use the arrows, or press ← →.','Dokumentasi proyek, kegiatan lapangan, dan riset. Geser lembaran, gunakan panah, atau tekan ← →.'],
+ctt:['Let’s talk about clean energy.','Mari berdiskusi soal energi bersih.'],ctp:['Open to opportunities in renewable energy, power systems and energy digitalization.','Terbuka untuk peluang di renewable energy, sistem tenaga, dan digitalisasi energi.'],
+nm:['Name','Nama'],em:['Your email','Email Anda'],msg:['Message','Pesan'],send:['Send message','Kirim pesan'],
+th:['Toggle light/dark theme','Ganti tema terang/gelap'],menu:['Menu','Menu'],close:['Close','Tutup'],prev:['Previous','Sebelumnya'],next:['Next','Berikutnya'],up:['Back to top','Kembali ke atas'],
+edu:['Education','Pendidikan'],intern:['Internship','Kerja Praktek'],work:['Employment','Pekerjaan'],lab:['Laboratory','Laboratorium']};
+const t=k=>x(I[k]);
+const DG=`<svg viewBox="0 0 600 170" class="w-full" aria-hidden="true"><path d="M130 45H240M360 45H470" stroke="var(--line)" stroke-width="2" fill="none"/><path class="fl" d="M130 45H240M360 45H470"/><path class="fl" d="M300 70V104" style="stroke:var(--mut)"/><g font-family="Instrument Sans,sans-serif" font-weight="600" font-size="14" text-anchor="middle"><rect x="10" y="20" width="120" height="50" fill="var(--ye)"/><text x="70" y="50" fill="#1d1c1a">Solar PV</text><rect x="240" y="20" width="120" height="50" fill="var(--card)" stroke="var(--am)" stroke-width="1.5"/><text x="300" y="50" fill="var(--ink)">BESS</text><rect x="470" y="20" width="120" height="50" fill="var(--ink)"/><text x="530" y="50" fill="var(--bg)">Smart Grid</text><rect x="225" y="104" width="150" height="40" fill="none" stroke="var(--mut)" stroke-dasharray="4 4"/><text x="300" y="129" fill="var(--ink)">IoT Telemetry</text></g></svg>`;
+$('#hd').innerHTML=DG;
+const VID='assets/Robot%20T.I.F.A.mp4';
+const PR=[
+{c:'re',n:'Smart Grid & Microgrid Telemetry System',one:['Real-time IoT data acquisition and telemetry architecture for Solar PV and BESS integration.','Arsitektur akuisisi data dan telemetri IoT real-time untuk integrasi Solar PV dan BESS.'],
+ det:['Design of a real-time IoT data acquisition and telemetry architecture for integrating a Solar PV plant with a Battery Energy Storage System (BESS), using MATLAB/Simulink and Python.','Perancangan arsitektur akuisisi data dan telemetri IoT real-time untuk integrasi Pembangkit Listrik Tenaga Surya (Solar PV) dan Battery Energy Storage System (BESS) menggunakan MATLAB/Simulink dan Python.'],
+ role:['Data acquisition and telemetry architecture designer','Perancang arsitektur akuisisi data dan telemetri'],tools:['MATLAB/Simulink','Python'],
+ arch:['Solar PV','BESS',['IoT Data Acquisition','Akuisisi Data IoT'],['Real-time Telemetry','Telemetri Real-time'],'MATLAB/Simulink & Python'],met:[['PV + BESS',['Integrated systems','Sistem terintegrasi']],['Real-time',['Telemetry mode','Mode telemetri']]],img:['diagram']},
+{c:'sys',n:'Bali Terrain & Elevation Analysis',one:['High-precision terrain and elevation analysis for planning renewable energy areas in Bali.','Analisis medan dan elevasi presisi tinggi untuk perencanaan kawasan energi terbarukan di Bali.'],
+ det:['High-precision terrain and elevation analysis in MATLAB to support layout planning of energy infrastructure and renewable energy areas in Bali. Survey data was processed into a 3D elevation model (DEM) and validated against reference satellite data, under Dr. Putu Harry Gunawan.','Analisis medan dan elevasi presisi tinggi dengan MATLAB untuk perencanaan tata letak infrastruktur dan kawasan energi terbarukan di Bali. Data survei diolah menjadi model elevasi 3D (DEM) dan divalidasi terhadap data satelit referensi, di bawah bimbingan Dr. Putu Harry Gunawan.'],
+ role:['Data engineer & research contributor','Data engineer & kontributor riset'],tools:['MATLAB'],
+ arch:[['Survey Data','Data Survei'],'Topography Gridding (MATLAB)',['3D Elevation Model (DEM)','Model Elevasi 3D (DEM)'],['Satellite Validation','Validasi Data Satelit'],['Energy Area Layout','Tata Letak Kawasan Energi']],met:[['Bali',['Study area','Wilayah studi']],[['Publication draft','Draf publikasi'],['Research output','Hasil riset']]],img:['assets/Bali.png','assets/Bali2.jpg','assets/Bali3.png']},
+{c:'iot',n:'IoT Delivery Robot & Battery Health Telemetry T.I.F.A',one:['Embedded system with real-time voltage/battery monitoring and closed-loop control.','Sistem tertanam dengan pemantauan voltase/baterai real-time dan kontrol closed-loop.'],
+ det:['Embedded system (ESP32/Arduino) with real-time voltage and battery sensor monitoring, closed-loop control, and a telemetry dashboard. Built as the Computer Engineering bachelor thesis at Telkom University, 2025.','Sistem tertanam (ESP32/Arduino) dengan pemantauan sensor voltase/baterai real-time, kontrol tertutup (closed-loop), dan dashboard telemetry. Dikerjakan sebagai skripsi S1 Teknik Komputer, Telkom University, 2025.'],
+ role:['Full-stack IoT & embedded engineer','Full-stack IoT & embedded engineer'],tools:['ESP32','Arduino','C++/MicroPython','Python','MQTT'],vid:VID,
+ arch:[['Voltage & Battery Sensors','Sensor Voltase & Baterai'],'ESP32 / Arduino',['Closed-loop Control','Kontrol Closed-loop'],'MQTT',['Telemetry Dashboard','Dashboard Telemetry']],met:[['40%',['Service efficiency improvement (UAT)','Peningkatan efisiensi layanan (UAT)']]],img:['assets/Tifa.png','assets/Tifa2.jpg','assets/Tifa3.jpg']},
+{c:'sys',n:'Web QR Asset Tracking for Energy EPC Projects',one:['Digital asset tracking and technical documentation for EPC Oil & Gas projects.','Digitalisasi pelacakan aset dan dokumentasi teknis proyek EPC Oil & Gas.'],
+ det:['Work at PT Meindo Elang Indah (EPC Oil & Gas) on digitalizing asset tracking and managing technical documentation for operational audit readiness.','Pengalaman di PT Meindo Elang Indah (EPC Oil & Gas) dalam digitalisasi pelacakan aset dan pengelolaan dokumentasi teknis untuk kesiapan audit operasional.'],
+ role:['IT Developer · PT Meindo Elang Indah','IT Developer · PT Meindo Elang Indah'],tools:['HTML','Web UI',['Data integration','Integrasi data']],
+ arch:[['EPC Project Assets','Aset Proyek EPC'],['QR Code Labels','Label QR Code'],'Web Inventory',['Technical Documentation','Dokumentasi Teknis'],['Audit Readiness','Kesiapan Audit']],met:[[['Audit','Audit'],['Operational readiness','Kesiapan operasional']],['QR',['Asset tracking','Pelacakan aset']]],img:['assets/WebTax.jpg','assets/WebTax2.jpg']}];
+const SK=[[['Power Systems & Renewable Energy','Sistem Tenaga & Energi Terbarukan'],['ETAP','HOMER Pro','PVsyst','DIgSILENT PowerFactory']],
+[['Simulation, Modeling & Data Analysis','Simulasi, Pemodelan & Analisis Data'],['MATLAB/Simulink (Simscape Electrical)','Python (Data Analysis/Pandapower)','SQL']],
+[['Energy Monitoring, IoT & Embedded Systems','Pemantauan Energi, IoT & Sistem Tertanam'],['ESP32','Arduino','Microcontroller Sensors','IoT Telemetry','MQTT','Industrial SCADA Concepts']],
+[['Programming & Technical Automation','Pemrograman & Otomatisasi Teknis'],['Python','C/C++','Bash','JavaScript','Docker','Git']]];
+const TL=[[['2026 – Present','2026 – Sekarang'],'edu',['Master of Electrical Engineering — Energy Management & Power Systems','S2 Teknik Elektro — Manajemen Energi & Ketenagalistrikan'],'Universitas Indonesia',['Focus: Energy Management, Power Systems, and Smart Grid.','Fokus: Manajemen Energi, Ketenagalistrikan, dan Smart Grid.']],
+[['2025 – 2026','2025 – 2026'],'work','IT Developer','PT Meindo Elang Indah — EPC Oil & Gas',['Technical documentation and digitalization of energy asset data.','Dokumentasi teknis dan digitalisasi data aset energi.']],
+[['2024 – 2025','2024 – 2025'],'lab',['SECULAB Laboratory Assistant','Asisten Laboratorium SECULAB'],'Telkom University',''],
+[['2024','2024'],'work','Software Engineer',['East Jakarta Tax Office — Kantor Pajak Jakarta Timur','Kantor Pajak Jakarta Timur'],['Dataset validation and data accuracy.','Validasi dataset dan akurasi data.']],
+[['13 May – 21 Jun 2024','13 Mei – 21 Jun 2024'],'intern',['Industrial Internship (Kerja Praktek)','Kerja Praktek'],'CoE Humic Engineering · Bandung',['Completed with the result “Very Satisfactory” (Sangat Memuaskan). Certificate dated Bandung, 31 July 2024.','Diselesaikan dengan hasil “Sangat Memuaskan”. Sertifikat tertanggal Bandung, 31 Juli 2024.']],
+[['2021 – 2025','2021 – 2025'],'edu',['Bachelor of Computer Engineering — B.Eng.','S1 Teknik Komputer — B.Eng.'],'Telkom University',['Graduated Cum Laude, GPA 3.61/4.00.','Lulus dengan predikat Cum Laude, IPK 3,61/4,00.']]];
+/* Hanya file yang ada di assets/. Tambahkan AESI.jpg, Meindo.jpg, Secu.jpg setelah diunggah. */
+const FB=[['assets/Bali.png',['Bali elevation modeling in MATLAB','Pemodelan elevasi Bali dengan MATLAB']],['assets/Bali2.jpg',['Terrain analysis for energy areas','Analisis medan untuk kawasan energi']],['assets/Bali3.png',['Elevation model validation','Validasi model elevasi']],
+['assets/Tifa.png',['T.I.F.A. robot — physical project','Robot T.I.F.A. — proyek fisik']],['assets/Tifa2.jpg',['T.I.F.A. robot — system testing','Robot T.I.F.A. — pengujian sistem']],['assets/Tifa3.jpg',['T.I.F.A. robot — sensors and telemetry','Robot T.I.F.A. — sensor dan telemetri']],
+['assets/Guestspeaker.png',['Guest Speaker, PKKMB — Telkom University, 2024','Pembicara Tamu, PKKMB — Telkom University, 2024']],['assets/Evoting.png',['Blockchain E-Voting Web project','Proyek Blockchain E-Voting Web']],['assets/WebTax.jpg',['Web system documentation','Dokumentasi sistem web']],['assets/WebTax2.jpg',['Web system documentation (2)','Dokumentasi sistem web (2)']],['assets/Profile.png',['Figo','Figo']]];
+
+/* ---------- Render ---------- */
+const pm=$('#pm');let G=null;
+const cover=p=>p.img[0]==='diagram'?DG:`<img src="${p.img[0]}" alt="${p.n}" loading="lazy" onerror="this.remove()"/>`;
+function drawP(){$('#pg').innerHTML=PR.map((p,k)=>({p,k})).filter(({p})=>CF==='all'||p.c===CF).map(({p,k})=>`<article class="ln py-8 grid md:grid-cols-[5fr_6fr] gap-6 md:gap-10 items-center"><button class="cv" data-k="${k}" aria-label="${p.n}">${cover(p)}</button><div><p class="mut text-sm">${t('f'+p.c)}</p><h3 class="mt-1" style="font-size:1.6rem">${p.n}</h3><p class="mut mt-2">${x(p.one)}</p><p class="text-sm mt-3">${p.tools.map(x).join(' · ')}</p><p class="mt-4"><button class="lk" data-k="${k}">${t('det')}</button></p></div></article>`).join('')}
+function drawS(){
+ $('#sk').innerHTML=SK.map(([n,a])=>`<div><h3 class="text-lg ln pt-3 mb-2">${x(n)}</h3><p class="mut">${a.join(' · ')}</p></div>`).join('');
+ $('#tl').innerHTML=TL.map(([y,ty,ti,o,d])=>`<div class="grid sm:grid-cols-[130px_1fr] gap-1 sm:gap-6 ln py-4"><p class="font-semibold" style="color:var(--am)">${x(y)}</p><div><p><span class="ty">${t(ty)}</span></p><h3 class="text-lg mt-1">${x(ti)}</h3><p class="mut">${x(o)}</p>${d?`<p class="mt-1">${x(d)}</p>`:''}</div></div>`).join('')}
+function fillM(){const p=G.p;
+ $('#mh').innerHTML=`<p class="mut text-sm">${t('f'+p.c)}</p><h3 id="mt" class="text-3xl mt-1 pr-12">${p.n}</h3><p class="mut mt-1">${t('rl')}: ${x(p.role)}</p>`;
+ $('#md').innerHTML=`<h4>${t('sum')}</h4><p>${x(p.det)}</p><h4>${t('arch')}</h4><div class="ar">${p.arch.map(a=>`<span>${x(a)}</span>`).join('<i>›</i>')}</div><h4>${t('tools')}</h4><p>${p.tools.map(x).join(' · ')}</p><h4>${t('met')}</h4><div class="mx">${p.met.map(([v,l])=>`<div><b>${x(v)}</b><small>${x(l)}</small></div>`).join('')}</div>`}
+function gal(){const p=G.p,s=p.img[G.i],n=p.img.length;
+ $('#gm').innerHTML=(s==='diagram'?DG:`<img src="${s}" alt="${p.n} ${G.i+1}" onerror="this.remove()"/>`)+(n>1?`<button class="ib gn" style="left:.5rem" data-d="-1" aria-label="${t('prev')}"><i data-lucide="chevron-left"></i></button><button class="ib gn" style="right:.5rem" data-d="1" aria-label="${t('next')}"><i data-lucide="chevron-right"></i></button>`:'');
+ $('#gc').textContent=n>1?`${G.i+1} / ${n}`:'';ic()}
+$('#pg').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;const p=PR[b.dataset.k];G={p,i:0};
+ $('#vw').innerHTML=p.vid?`<video class="vd" src="${p.vid}" controls autoplay muted playsinline preload="metadata"></video>`:'';$('#vwb').style.display=p.vid?'':'none';
+ fillM();gal();pm.showModal();pm.scrollTop=0;const v=$('#vw video');if(v)v.play().catch(()=>{})};
+$('#mx').onclick=()=>pm.close();
+pm.onclick=e=>{if(e.target===pm)pm.close();const d=e.target.closest('[data-d]');if(d){G.i=(G.i+ +d.dataset.d+G.p.img.length)%G.p.img.length;gal()}const im=e.target.closest('#gm img');if(im)zoom(im.src)};
+pm.addEventListener('close',()=>{$('#vw').innerHTML='';G=null}); /* menghentikan video saat modal ditutup */
+const lb=$('#lb');function zoom(s){$('#li').src=s;lb.showModal()}lb.onclick=()=>lb.close();
+$('#ch').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;CF=b.dataset.c;$$('.chip').forEach(c=>c.classList.toggle('on',c===b));drawP()};
+$('#pf').onclick=e=>zoom(e.target.src);
+
+/* ---------- Bahasa & tema ---------- */
+function setL(l,save){L=l;if(save)try{localStorage.setItem('lg',l)}catch(e){}
+ document.documentElement.lang=l;
+ $$('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
+ $$('[data-ph]').forEach(e=>{e.placeholder=t(e.dataset.ph);e.setAttribute('aria-label',t(e.dataset.ph))});
+ $$('[data-al]').forEach(e=>{e.setAttribute('aria-label',t(e.dataset.al));e.title=t(e.dataset.al)});
+ $('#lEN').setAttribute('aria-pressed',l==='en');$('#lID').setAttribute('aria-pressed',l==='id');
+ drawP();drawS();if(G){fillM();gal()}
+ $$('[data-fb]').forEach(e=>e.textContent=x(FB.find(f=>f[0]===e.dataset.fb)[1]));
+ $$('.lf img').forEach(i=>i.alt=x(FB.find(f=>f[0]===i.getAttribute('src'))[1]));ic()}
+$('#lEN').onclick=()=>setL('en',1);$('#lID').onclick=()=>setL('id',1);
+const root=document.documentElement;let dm;try{dm=localStorage.getItem('th')}catch(e){}
+if(dm==='d')root.classList.add('dark'); /* default: terang */
+$('#th').onclick=()=>{const d=root.classList.toggle('dark');try{localStorage.setItem('th',d?'d':'l')}catch(e){}};
+
+/* ---------- Flipbook ---------- */
+const load=f=>new Promise(r=>{const i=new Image();i.onload=()=>r(f);i.onerror=()=>r(null);i.src=f[0]});
+Promise.all(FB.map(load)).then(r=>{
+ LF=r.filter(Boolean);const bk=$('#bk');let cur=0,sw=false;
+ if(!LF.length){bk.innerHTML='<p class="mut text-center">No images found in assets/.</p>';return}
+ bk.innerHTML=LF.map(([s,c],i)=>`<figure class="lf" style="z-index:${LF.length-i}"><img src="${s}" alt="${x(c)}" onclick="zoom(this.src)"/><figcaption><span data-fb="${s}">${x(c)}</span><span class="mut">${i+1} / ${LF.length}</span></figcaption></figure>`).join('');
+ $('#dots').innerHTML=LF.map((_,i)=>`<button class="dot" aria-label="${i+1}" data-i2="${i}"></button>`).join('');
+ const lv=[...bk.children],dt=$$('.dot');
+ const go=n=>{cur=Math.max(0,Math.min(LF.length-1,n));lv.forEach((l,i)=>l.classList.toggle('f',i<cur));dt.forEach((d,i)=>d.classList.toggle('on',i===cur))};
+ go(0);
+ $('#nx').onclick=()=>go(cur+1);$('#pv').onclick=()=>go(cur-1);
+ $('#dots').onclick=e=>{if(e.target.dataset.i2)go(+e.target.dataset.i2)};
+ let x0=null;bk.addEventListener('pointerdown',e=>x0=e.clientX);
+ bk.addEventListener('pointerup',e=>{if(x0!==null&&Math.abs(e.clientX-x0)>45){go(cur+(e.clientX<x0?1:-1));sw=true}x0=null});
+ bk.addEventListener('click',e=>{if(sw){e.stopPropagation();sw=false}},true);
+ document.addEventListener('keydown',e=>{if(pm.open||lb.open)return;const b=bk.getBoundingClientRect();if(b.top<innerHeight&&b.bottom>0){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1)}});
+});
+document.addEventListener('keydown',e=>{if(pm.open&&!lb.open&&G&&G.p.img.length>1&&(e.key==='ArrowRight'||e.key==='ArrowLeft')&&e.target.tagName!=='VIDEO'){G.i=(G.i+(e.key==='ArrowRight'?1:-1)+G.p.img.length)%G.p.img.length;gal()}});
+
+/* ---------- Navigasi, lain-lain ---------- */
+const mm=$('#mm'),shut=()=>{mm.classList.add('hidden');mm.classList.remove('flex');$('#mb').setAttribute('aria-expanded',false)};
+$('#mb').onclick=()=>{const o=mm.classList.contains('hidden');mm.classList.toggle('hidden',!o);mm.classList.toggle('flex',o);$('#mb').setAttribute('aria-expanded',o)};
+mm.onclick=e=>{if(e.target.tagName==='A')shut()};
+matchMedia('(min-width:768px)').onchange=shut;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+$$('.rv').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>{const u=$('#up'),s=scrollY>600;u.style.opacity=s?1:0;u.style.pointerEvents=s?'auto':'none'},{passive:true});
+$('#up').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+$('#cf').onsubmit=e=>{e.preventDefault();const f=e.target;
+ location.href=`mailto:haqfigo@gmail.com?subject=${encodeURIComponent('Portfolio: '+f.n.value)}&body=${encodeURIComponent(f.m.value+'\n\n'+f.n.value+' ('+f.e.value+')')}`};
+$('#yr').textContent=new Date().getFullYear();
+setL(L,0);
+</script>
+</body>
+</html>
