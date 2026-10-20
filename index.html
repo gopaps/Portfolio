@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Figo — Electrical Engineering | Renewable Energy, Power Systems, Smart Grid</title>
 <meta name="description" content="Portfolio of Figo (Anda Figo Haq): Electrical Engineering postgraduate student focused on renewable energy, power systems and smart grid."/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231d1c1a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23f5b800'/%3E%3Cpath d='M16 3v4M16 25v4M3 16h4M25 16h4M7 7l3 3M22 22l3 3M25 7l-3 3M10 22l-3 3' stroke='%23f5b800' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com/3.4.17"></script>
@@ -80,8 +81,8 @@ dialog::backdrop{background:rgba(10,9,6,.8)}
 </nav>
 
 <header id="about" class="max-w-6xl mx-auto px-5 pt-12 pb-12">
- <div class="grid md:grid-cols-[1fr_300px] gap-8 md:gap-14 items-start">
-  <div class="order-2 md:order-1">
+ <div class="grid md:grid-cols-[300px_1fr] gap-8 md:gap-14 items-start">
+  <div class="order-2">
    <h1 class="sf" style="font-size:clamp(2.8rem,6vw,4.2rem)">Figo</h1>
    <p class="mut mt-1" style="font-size:1.05rem">Anda Figo Haq</p>
    <p class="sf mt-3" style="font-size:clamp(1.3rem,2.6vw,1.7rem)" data-i="role"></p>
@@ -93,7 +94,7 @@ dialog::backdrop{background:rgba(10,9,6,.8)}
    </div>
    <p class="mt-4 flex gap-6"><a class="lk" href="#contact" data-i="cm"></a><a class="lk" href="https://linkedin.com/in/figohaq" target="_blank" rel="noopener">LinkedIn</a></p>
   </div>
-  <img class="ph order-1 md:order-2" id="pf" src="assets/Profile.png" alt="Figo" onerror="this.style.display='none'"/>
+  <img class="ph order-1" id="pf" src="assets/Profile.png" alt="Figo" onerror="this.style.display='none'"/>
  </div>
  <figure class="mt-12 ln pt-5 max-w-2xl">
   <div id="hd" role="img" aria-label="Solar PV, BESS, Smart Grid"></div>
@@ -177,7 +178,7 @@ showp:['Documentation of projects, fieldwork and research. Swipe the pages, use 
 ctt:['Let’s talk about clean energy.','Mari berdiskusi soal energi bersih.'],ctp:['Open to opportunities in renewable energy, power systems and energy digitalization.','Terbuka untuk peluang di renewable energy, sistem tenaga, dan digitalisasi energi.'],
 nm:['Name','Nama'],em:['Your email','Email Anda'],msg:['Message','Pesan'],send:['Send message','Kirim pesan'],
 th:['Toggle light/dark theme','Ganti tema terang/gelap'],menu:['Menu','Menu'],close:['Close','Tutup'],prev:['Previous','Sebelumnya'],next:['Next','Berikutnya'],up:['Back to top','Kembali ke atas'],
-edu:['Education','Pendidikan'],intern:['Internship','Kerja Praktek'],work:['Employment','Pekerjaan'],lab:['Laboratory','Laboratorium']};
+edu:['Education','Pendidikan'],intern:['Internship','Magang'],work:['Employment','Pekerjaan'],lab:['Laboratory','Laboratorium']};
 const t=k=>x(I[k]);
 const DG=`<svg viewBox="0 0 600 170" class="w-full" aria-hidden="true"><path d="M130 45H240M360 45H470" stroke="var(--line)" stroke-width="2" fill="none"/><path class="fl" d="M130 45H240M360 45H470"/><path class="fl" d="M300 70V104" style="stroke:var(--mut)"/><g font-family="Instrument Sans,sans-serif" font-weight="600" font-size="14" text-anchor="middle"><rect x="10" y="20" width="120" height="50" fill="var(--ye)"/><text x="70" y="50" fill="#1d1c1a">Solar PV</text><rect x="240" y="20" width="120" height="50" fill="var(--card)" stroke="var(--am)" stroke-width="1.5"/><text x="300" y="50" fill="var(--ink)">BESS</text><rect x="470" y="20" width="120" height="50" fill="var(--ink)"/><text x="530" y="50" fill="var(--bg)">Smart Grid</text><rect x="225" y="104" width="150" height="40" fill="none" stroke="var(--mut)" stroke-dasharray="4 4"/><text x="300" y="129" fill="var(--ink)">IoT Telemetry</text></g></svg>`;
 $('#hd').innerHTML=DG;
@@ -206,7 +207,7 @@ const SK=[[['Power Systems & Renewable Energy','Sistem Tenaga & Energi Terbaruka
 const TL=[[['2026 – Present','2026 – Sekarang'],'edu',['Master of Electrical Engineering — Energy Management & Power Systems','S2 Teknik Elektro — Manajemen Energi & Ketenagalistrikan'],'Universitas Indonesia',['Focus: Energy Management, Power Systems, and Smart Grid.','Fokus: Manajemen Energi, Ketenagalistrikan, dan Smart Grid.']],
 [['2025 – 2026','2025 – 2026'],'work','IT Developer','PT Meindo Elang Indah — EPC Oil & Gas',['Technical documentation and digitalization of energy asset data.','Dokumentasi teknis dan digitalisasi data aset energi.']],
 [['2024 – 2025','2024 – 2025'],'lab',['SECULAB Laboratory Assistant','Asisten Laboratorium SECULAB'],'Telkom University',''],
-[['2024','2024'],'work','Software Engineer',['East Jakarta Tax Office — Kantor Pajak Jakarta Timur','Kantor Pajak Jakarta Timur'],['Dataset validation and data accuracy.','Validasi dataset dan akurasi data.']],
+[['2024','2024'],'intern','Software Engineer',['East Jakarta Tax Office — Kantor Pajak Jakarta Timur','Kantor Pajak Jakarta Timur'],['Dataset validation and data accuracy.','Validasi dataset dan akurasi data.']],
 [['13 May – 21 Jun 2024','13 Mei – 21 Jun 2024'],'intern',['Industrial Internship (Kerja Praktek)','Kerja Praktek'],'CoE Humic Engineering · Bandung',['Completed with the result “Very Satisfactory” (Sangat Memuaskan). Certificate dated Bandung, 31 July 2024.','Diselesaikan dengan hasil “Sangat Memuaskan”. Sertifikat tertanggal Bandung, 31 Juli 2024.']],
 [['2021 – 2025','2021 – 2025'],'edu',['Bachelor of Computer Engineering — B.Eng.','S1 Teknik Komputer — B.Eng.'],'Telkom University',['Graduated Cum Laude, GPA 3.61/4.00.','Lulus dengan predikat Cum Laude, IPK 3,61/4,00.']]];
 /* Hanya file yang ada di assets/. Tambahkan AESI.jpg, Meindo.jpg, Secu.jpg setelah diunggah. */
